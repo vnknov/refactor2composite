@@ -1,8 +1,6 @@
 package de.scenaryo.repository;
 
 import de.scenaryo.model.Product;
-import de.scenaryo.spec.ColorSpec;
-import de.scenaryo.spec.SizeSpec;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,15 +16,12 @@ public class ProductRepository {
             this.products.addAll(Arrays.asList(products));
     }
 
-    public Collection<Product> findBy(ColorSpec colorSpec) {
-       return this.products.stream()
-               .filter(p -> colorSpec.getColor().equals(p.getColor()))
-               .collect(Collectors.toList());
-    }
+    public Collection<Product> findBy(SearchCriteria spec) {
 
-    public Collection<Product> findBy(SizeSpec sizeSpec) {
-        return this.products.stream()
-                .filter(p -> sizeSpec.getSize().equals(p.getSize()))
-                .collect(Collectors.toList());
-    }
+            return this.products.stream()
+                    .filter(asdf -> spec.matches(asdf))
+                    .collect(Collectors.toList());
+
+     }
+
 }

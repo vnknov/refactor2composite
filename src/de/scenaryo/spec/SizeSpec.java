@@ -1,8 +1,10 @@
 package de.scenaryo.spec;
 
+import de.scenaryo.model.Product;
 import de.scenaryo.model.ProductSize;
+import de.scenaryo.repository.SearchCriteria;
 
-public class SizeSpec {
+public class SizeSpec implements SearchCriteria {
 
     private ProductSize size;
 
@@ -10,7 +12,8 @@ public class SizeSpec {
         this.size = size;
     }
 
-    public ProductSize getSize() {
-        return this.size;
+    @Override
+    public boolean matches(Product product) {
+        return this.size.equals(product.getSize());
     }
 }

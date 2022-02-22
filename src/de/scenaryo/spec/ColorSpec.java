@@ -1,8 +1,11 @@
 package de.scenaryo.spec;
 
+import de.scenaryo.model.Product;
+import de.scenaryo.repository.SearchCriteria;
+
 import java.awt.*;
 
-public class ColorSpec {
+public class ColorSpec implements SearchCriteria {
 
     public Color color;
 
@@ -10,8 +13,8 @@ public class ColorSpec {
         this.color = color;
     }
 
-    public Color getColor() {
-        return this.color;
+    @Override
+    public boolean matches(Product product) {
+        return this.color.equals(product.getColor());
     }
-
 }

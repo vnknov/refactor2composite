@@ -3,6 +3,8 @@ package de.scenaryo.repository;
 import de.scenaryo.model.Product;
 import de.scenaryo.model.ProductSize;
 import de.scenaryo.spec.ColorSpec;
+import de.scenaryo.spec.NotSpec;
+import de.scenaryo.spec.PriceSpec;
 import de.scenaryo.spec.SizeSpec;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,11 +43,29 @@ public class ProductRepositoryTest {
     }
 
     @Test
+    public void testNotColorSpec() {
+        ColorSpec colorSpec = new ColorSpec(Color.RED);
+        NotSpec notRed = new NotSpec(colorSpec);
+        Collection<Product> products = repository.findBy(notRed);
+        products.forEach(System.out::println);
+        assertEquals(5, products.size());
+    }
+
+
+    @Test
     public void testSizeSpec() {
         SizeSpec sizeSpec = new SizeSpec(ProductSize.S);
         Collection<Product> products = repository.findBy(sizeSpec);
         products.forEach(System.out::println);
         assertEquals(5, products.size());
+    }
+
+    @Test
+    public void testPriceSpec() {
+        SearchCriteria priceSpec = new PriceSpec(2.99f);
+        Collection<Product> products = repository.findBy(priceSpec);
+        products.forEach(System.out::println);
+        assertEquals(4, products.size());
     }
 
 
