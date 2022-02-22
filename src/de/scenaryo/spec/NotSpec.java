@@ -13,6 +13,10 @@ public class NotSpec implements SearchCriteria {
 
     @Override
     public boolean matches(Product product) {
-        return !this.criteria.matches(product);
+        return !this.getCriteria().matches(product);
+    }
+
+    public SearchCriteria getCriteria() {
+        return criteria;
     }
 }

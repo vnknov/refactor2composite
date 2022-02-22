@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class ColorSpec implements SearchCriteria {
 
-    public Color color;
+    private Color color;
 
     public ColorSpec (Color color) {
         this.color = color;
@@ -15,6 +15,10 @@ public class ColorSpec implements SearchCriteria {
 
     @Override
     public boolean matches(Product product) {
-        return this.color.equals(product.getColor());
+        return this.getColor().equals(product.getColor());
+    }
+
+    public Color getColor() {
+        return color;
     }
 }

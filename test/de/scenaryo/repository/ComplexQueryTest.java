@@ -54,6 +54,9 @@ public class ComplexQueryTest {
         Collection<Product> products = repository.findBy(orSpec);
         products.forEach(System.out::println);
         assertEquals(2, products.size());
+
+
+        repository.findInDatabase(notGray);
     }
 
 }
