@@ -32,4 +32,8 @@ public class AndSpec implements SearchCriteria {
     public boolean matches(Product product) {
         return this.criterias.stream().allMatch(c -> c.matches(product));
     }
+
+    public List<SearchCriteria> getCriterias() {
+        return this.criterias;
+    }
 }

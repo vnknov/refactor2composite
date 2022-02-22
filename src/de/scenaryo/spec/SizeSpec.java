@@ -16,4 +16,8 @@ public class SizeSpec implements SearchCriteria {
     public boolean matches(Product product) {
         return this.size.equals(product.getSize());
     }
+
+    public ProductSize getSize() {
+        return this.size;
+    }
 }

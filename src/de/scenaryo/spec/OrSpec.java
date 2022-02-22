@@ -32,4 +32,8 @@ public class OrSpec implements SearchCriteria {
     public boolean matches(Product product) {
         return this.criterias.stream().anyMatch(c -> c.matches(product));
     }
+
+    public List<SearchCriteria> getCriterias() {
+        return this.criterias;
+    }
 }

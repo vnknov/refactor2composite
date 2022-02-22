@@ -16,4 +16,7 @@ public class PriceSpec implements SearchCriteria {
         return this.price - product.getPrice() == 0f;
     }
 
+    public float getPrice() {
+        return this.price;
+    }
 }

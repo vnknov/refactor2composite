@@ -56,7 +56,7 @@ public class ComplexQueryTest {
         assertEquals(2, products.size());
 
 
-        repository.findInDatabase(notGray);
+        repository.findInDatabase(orSpec);
     }
 
 }
